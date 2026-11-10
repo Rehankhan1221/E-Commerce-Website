@@ -1,0 +1,668 @@
+/* ==============================
+   HEADER
+================================ */
+
+.header {
+  width: 100%;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Top Announcement Bar */
+
+.topBar {
+  min-height: 38px;
+  background: #101b46;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  font-size: 12px;
+}
+
+.topBar p {
+  margin: 0;
+}
+
+.topBar span {
+  color: #dbeafe;
+}
+
+/* ==============================
+   MAIN NAVBAR
+================================ */
+
+.navbar {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 12px 5%;
+  border-bottom: 1px solid #edf0f7;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: min-height 0.3s ease;
+}
+
+/* Logo */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #2563eb;
+  white-space: nowrap;
+}
+
+.logo h2 {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+.logo span {
+  color: #a855f7;
+}
+
+/* Navigation Links */
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: #252b3a;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navLinks a:hover {
+  color: #2563eb;
+}
+
+/* Search */
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f3f6ff;
+  border: 1px solid #e1e8ff;
+  border-radius: 30px;
+  padding: 12px 16px;
+  min-width: 210px;
+  color: #2563eb;
+  flex: 1;
+  max-width: 310px;
+}
+
+.searchBox input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13px;
+  color: #1e293b;
+}
+
+/* Navbar Actions */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.actions > button,
+.notificationButton {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: #172554;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.actions > button:hover,
+.notificationButton:hover {
+  color: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* ==============================
+   SCROLL EFFECT
+================================ */
+
+.scrolled {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.1);
+}
+
+.scrolled .navbar {
+  min-height: 70px;
+}
+
+/* ==============================
+   NOTIFICATION WRAPPER
+================================ */
+
+.notificationWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.notificationButton {
+  position: relative;
+}
+
+/* Notification Count Badge */
+
+.notificationBadge {
+  position: absolute;
+  top: -9px;
+  right: -10px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  background: #ef4444;
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+/* ==============================
+   NOTIFICATION DROPDOWN
+================================ */
+
+.notificationDropdown {
+  position: absolute;
+  top: calc(100% + 18px);
+  right: -15px;
+  width: 340px;
+  max-width: calc(100vw - 24px);
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.16);
+  border: 1px solid #e5e7eb;
+  z-index: 10000;
+  overflow: hidden;
+  animation: dropdownShow 0.25s ease;
+}
+
+/* Dropdown Header */
+
+.dropdownHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17px;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdownHeader h3 {
+  font-size: 16px;
+  color: #172554;
+  margin: 0;
+}
+
+.dropdownHeader span {
+  font-size: 11px;
+  color: #2563eb;
+  font-weight: 700;
+}
+
+/* Notification List */
+
+.notificationList {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Individual Notification */
+
+.notificationItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 17px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  font-size: 13px;
+  transition: background 0.2s ease;
+}
+
+.notificationItem svg {
+  flex-shrink: 0;
+  color: #2563eb;
+}
+
+.notificationItem:hover {
+  background: #f8fafc;
+}
+
+/* Unread Notification */
+
+.unreadNotification {
+  background: #eff6ff;
+}
+
+/* Mark as Read Button */
+
+.notificationItem button {
+  border: none;
+  background: transparent;
+  color: #2563eb;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.notificationItem button:hover {
+  color: #1d4ed8;
+}
+
+/* Empty Notification Message */
+
+.emptyNotifications {
+  padding: 25px 15px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+/* Dropdown Animation */
+
+@keyframes dropdownShow {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==============================
+   TOAST NOTIFICATION
+================================ */
+
+.notificationToast {
+  position: fixed;
+  top: 130px;
+  right: 25px;
+  z-index: 99999;
+  width: 340px;
+  min-height: 85px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 16px 16px 20px;
+  background: #ffffff;
+  color: #1e293b;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.16);
+  animation: notificationSlide 0.4s ease;
+  overflow: hidden;
+}
+
+/* Toast Success Icon */
+
+.toastIcon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dcfce7;
+  color: #16a34a;
+  border-radius: 50%;
+}
+
+/* Toast Text */
+
+.toastContent {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  min-width: 0;
+}
+
+.toastContent strong {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.toastContent span {
+  font-size: 11px;
+  color: #64748b;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* Toast Close Button */
+
+.toastClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.toastClose:hover {
+  color: #ef4444;
+}
+
+/* Toast Progress Bar */
+
+.toastProgress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #22c55e;
+  animation: toastTimer 3s linear forwards;
+}
+
+@keyframes toastTimer {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0%;
+  }
+}
+
+/* Toast Slide Animation */
+
+@keyframes notificationSlide {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 1100px) {
+  .navLinks {
+    gap: 12px;
+  }
+
+  .navbar {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 850px) {
+  .navbar {
+    position: relative;
+  }
+
+  .navLinks {
+    display: none;
+    position: absolute;
+
+    top: calc(100% + 14px);
+    left: 0;
+    right: 0;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+
+    padding: 12px;
+    background: #ffffff;
+
+    border: 1px solid #eee9ff;
+    border-radius: 18px;
+
+    box-shadow:
+      0 15px 40px rgba(23, 37, 84, 0.12),
+      0 3px 10px rgba(23, 37, 84, 0.04);
+
+    z-index: 2000;
+  }
+
+  .mobileMenuOpen {
+    display: flex;
+    animation: menuSlideDown 0.3s ease forwards;
+  }
+
+  .navLinks a {
+    display: flex;
+    align-items: center;
+
+    padding: 14px 16px;
+
+    color: #172554;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+
+    border-radius: 11px;
+    border: 1px solid transparent;
+
+    transition: all 0.25s ease;
+  }
+
+  .navLinks a:hover {
+    background: #f5f2ff;
+    color: #7651db;
+    border-color: #eee7ff;
+    padding-left: 21px;
+  }
+}
+
+@keyframes menuSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 550px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .logo h2 {
+    font-size: 21px;
+  }
+
+  .searchBox {
+    order: 3;
+    flex-basis: 100%;
+    max-width: none;
+  }
+
+  .actions {
+    gap: 10px;
+  }
+
+  .topBar {
+    font-size: 10px;
+    padding: 0 12px;
+  }
+
+  .notificationDropdown {
+    right: -65px;
+    width: min(340px, calc(100vw - 24px));
+  }
+}
+
+
+@media (max-width: 480px) {
+  .notificationToast {
+    right: 12px;
+    width: calc(100% - 24px);
+    top: 110px;
+  }
+}
+.cartButton {
+  position: relative;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -8px;
+  right: -9px;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 50px;
+  border: 2px solid #ffffff;
+}
+
+@media (max-width: 550px) {
+  .header {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+  }
+
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 70px;
+    padding: 12px 15px;
+  }
+
+  .logo,
+  .actions {
+    display: flex;
+    visibility: visible;
+  }
+
+  .actions {
+    margin-left: auto;
+  }
+}
+
+
+/* Tablet and Mobile */
+@media (max-width: 850px) {
+  .mobileMenuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: #172554;
+    cursor: pointer;
+  }
+}
+.mobileMenuButton {
+  display: none;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+
+  background: #f3f0ff;
+  color: #172554;
+
+  border: 1px solid #e5ddff;
+  border-radius: 12px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobileMenuButton:hover {
+  background: #172554;
+  color: #ffffff;
+  border-color: #172554;
+  transform: translateY(-2px);
+}
+
+.mobileMenuButton:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 850px) {
+  .mobileMenuButton {
+    display: flex;
+  }
+}
+.navLinks a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navLinks a svg {
+  flex-shrink: 0;
+  color: #7651db;
+  transition: transform 0.25s ease;
+}
+
+.navLinks a:hover svg {
+  transform: scale(1.12);
+}
+.activeLink {
+  color: #7651db !important;
+  background: #f3f0ff;
+  border-radius: 10px;
+}
+
+.activeLink svg {
+  color: #7651db !important;
+}
